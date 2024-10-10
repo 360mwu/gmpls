@@ -6,6 +6,7 @@ form {
     margin: 0 auto; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
     text-align: left; 
+    
 }
 
 h1 {
@@ -13,14 +14,6 @@ h1 {
     color: #ffffff;
     font-size: 24px; 
     margin-bottom: 20px; 
-}
-
-h2 {
-    color: #ffffff; 
-    padding-bottom: 10px;
-    margin-bottom: 5px;
-    text-align: center; 
-    font-size: 22px;
 }
 
 .form-group {
@@ -51,7 +44,7 @@ input {
 }
 
 button {
-    background-color: #00b09b;
+    background-color: #23635b;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -67,7 +60,7 @@ button:hover {
 }
 
 #check-button {
-    background-color: #3498db;
+    background-color: #235577;
 }
 
 #check-button:hover {
