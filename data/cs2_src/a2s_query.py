@@ -1,7 +1,4 @@
-from data.translator.trs import MessageService
 import a2s
-
-MSG = MessageService()
 
 async def get_server_info(ip, port):
     address = (ip, port)
@@ -20,4 +17,4 @@ async def get_server_info(ip, port):
 
         return server_info
     except:
-        return await MSG.no_info_server()
+        return None
