@@ -95,10 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 return response.json().then(data => {
                     showToast(data.message || 'Установка прошла успешно!', 'success');
+                    setTimeout(() => {
+                        window.location.href = data.redirect_url;  
+                    }, 2000);
                 });
             } else {
                 return response.json().then(data => {
                     showToast(data.detail || 'Ошибка при установке!', 'error');
+                    
                 });
             }
         })

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request, HTTPException
 from fastapi.templating import Jinja2Templates
-from starlette.responses import HTMLResponse
+from starlette.responses import HTMLResponse, RedirectResponse
 from app.database.database import Database
 from app.models.local import DatabaseData, LocalConfig
 from data.cs2_src.steamid import is_valid_profile, get_steam_id_64
@@ -77,5 +77,5 @@ async def go_install(data: LocalConfig):
         raise HTTPException(status_code=500, detail="Ошибка при сохранении конфигурации")
 
     await info_logger("Success install!")
-    return {"message": "Установка прошла успешно! Переход на главную..."}
+    return {"message": "Установка прошла успешно! Переход на главную...", "redirect_url": "/"}
 
