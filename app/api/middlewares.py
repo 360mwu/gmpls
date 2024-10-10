@@ -2,10 +2,29 @@ from fastapi import Request
 from fastapi.responses import RedirectResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 from pydantic import ValidationError
+from fastapi.templating import Jinja2Templates
 from app.models.local import LocalConfigCheck
 import os
 import json
 
+templates = Jinja2Templates(directory="app/templates")
+
+class ErrorsMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+
+        image_path = "static/images/error_image.png"
+
+        match response.status_code:
+            case 404:
+                return templates.TemplateResponse("errors/404.html", {"request": request, "image_path": image_path}, status_code=404)
+            case 401:  
+                return templates.TemplateResponse("errors/401.html", {"request": request, "image_path": image_path}, status_code=401)
+            case 500:
+                return templates.TemplateResponse("errors/500.html", {"request": request, "image_path": image_path}, status_code=500)
+
+        return response
+    
 class InstallMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         config_path = 'app/database/local.json'

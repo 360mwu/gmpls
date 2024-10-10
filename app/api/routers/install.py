@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request, HTTPException
 from fastapi.templating import Jinja2Templates
-from starlette.responses import HTMLResponse, RedirectResponse
+from starlette.responses import HTMLResponse
 from app.database.database import Database
 from app.models.local import DatabaseData, LocalConfig
 from data.cs2_src.steamid import is_valid_profile, get_steam_id_64

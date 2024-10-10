@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block add_styles %}
+    <link rel="stylesheet" href="/static/css/error.css"> 
+{% endblock %}
+
+{% block content %}
+    <div class="error-message">
+        <h1>Server Error...</h1>
+        <img src="{{ image_path }}" alt="Ошибка 500"/>
+        <a class="button" href="/">Главная</a> 
+    </div>
+{% endblock %}

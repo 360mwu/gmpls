@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Вход{% endblock %}
+
+{% block add_styles %}
+    <link rel="stylesheet" href="/static/css/error.css"> 
+{% endblock %}
+
+{% block content %}
+    <div class="error-message">
+        <h1>Вы не авторизованы...</h1>
+        <img src="{{ image_path }}" alt="Ошибка 401"/>
+        <a class="button" href="/login">Войти через Steam</a> 
+    </div>
+{% endblock %}
