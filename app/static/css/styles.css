@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../fonts/RobotoMono-Bold.ttf') format('truetype'); 
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace; 
+    background-color: #121212; 
+    color: #e0e0e0; 
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px; 
+}
+
+.navbar {
+    background-color: #1e1e1e; 
+    height: 70px;  
+    border-bottom: 1px solid #333;  
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    margin-top: 0;
+}
+
+a {
+    color: #f39c12; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e67e22; 
+}
