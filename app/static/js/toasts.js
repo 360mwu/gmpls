@@ -21,7 +21,7 @@ function showToast(message, type = 'success', duration = 3000) {
         toastContainer.style.position = 'fixed';
         toastContainer.style.top = '15px';
         toastContainer.style.right = '20px';
-        toastContainer.style.zIndex = '1000';
+        toastContainer.style.zIndex = '1';
         document.body.appendChild(toastContainer);
     }
 
@@ -35,24 +35,31 @@ function showToast(message, type = 'success', duration = 3000) {
     toast.style.borderRadius = '5px';
     toast.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
     toast.style.opacity = '0';
-    toast.style.transition = 'opacity 0.5s';
+    toast.style.transition = 'opacity 0.5s, transform 0.5s';
+    toast.style.transform = 'translateY(-10px)'; 
 
     if (window.innerWidth < 600) { 
         toast.style.fontSize = '14px'; 
-        toast.style.padding = '8px 16px'; 
-        toast.style.right = '10px'; 
+        toast.style.padding = '4px 16px'; 
+        toast.style.width = '80%'; 
+        toast.style.left = '0'; 
+        toast.style.right = '0'; 
+        toast.style.margin = '0 auto'; 
     } else {
         toast.style.fontSize = '16px'; 
+        toast.style.width = 'auto'; 
     }
 
     toastContainer.appendChild(toast);
 
     setTimeout(() => {
         toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)'; 
     }, 10); 
 
     setTimeout(() => {
         toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)'; 
         setTimeout(() => {
             toastContainer.removeChild(toast);
             if (toastContainer.children.length === 0) {
