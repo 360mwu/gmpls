@@ -1,5 +1,8 @@
 import aiomysql
+import warnings
 from data.utils.logger import error_logger
+
+warnings.filterwarnings("ignore", category=aiomysql.Warning)
 
 class Database:
     def __init__(self, host, user, password, db, port, prefix):

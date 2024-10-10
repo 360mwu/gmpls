@@ -1,0 +1,10 @@
+{
+    "steam_api_key": "2321dadawdwd3421312332131",
+    "steam_64_general_admin": 76561199045169815,
+    "db_host": "185.137.235.115",
+    "db_user": "u101_ebhXAloZY9",
+    "db_password": "hRLc7^+RD0gZ3.X!BM61FAU8",
+    "db_name": "s101_oleg",
+    "db_port": 3306,
+    "db_prefix": "ps_"
+}

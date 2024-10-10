@@ -7,6 +7,9 @@ function showToast(message, type = 'success', duration = 3000) {
         case 'error':
             backgroundColor = '#ff4d4d'; 
             break;
+        case 'info':
+            backgroundColor = '#007bff'; 
+            break;
         case 'warning':
             backgroundColor = '#6a0dad'; 
             break;

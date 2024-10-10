@@ -42,9 +42,25 @@ async def go_install(data: LocalConfig):
         await error_logger("Invalid Steam URL!")
         raise HTTPException(status_code=400, detail="Невалидный Steam URL")
 
+    database = Database(
+        host=data.db_host,
+        user=data.db_user,
+        password=data.db_password,
+        db=data.db_name,
+        port=data.db_port,
+        prefix=data.db_prefix
+    )
+
+    try:
+        await database.create_tables()
+    except:
+        raise HTTPException(status_code=500, detail="Ошибка при создании таблиц")
+    
+    steam_id_64 = await get_steam_id_64(data.steam_64_general_admin)
+
     local_config = {
         "steam_api_key": data.steam_api_key,
-        "steam_64_general_admin": data.steam_64_general_admin,
+        "steam_64_general_admin": int(steam_id_64),
         "db_host": data.db_host,
         "db_user": data.db_user,
         "db_password": data.db_password,
@@ -61,5 +77,5 @@ async def go_install(data: LocalConfig):
         raise HTTPException(status_code=500, detail="Ошибка при сохранении конфигурации")
 
     await info_logger("Success install!")
-    return {"message": "Установка прошла успешно!"}
+    return {"message": "Установка прошла успешно! Переход на главную..."}
 

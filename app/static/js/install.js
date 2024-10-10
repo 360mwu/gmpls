@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
             db_prefix: dbPrefix
         };
 
+        showToast('Создание таблиц! Пожалуйста, подождите...', 'info');
+
         fetch('/go_install', {
             method: 'POST',
             headers: {
@@ -91,7 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (response.ok) {
-                showToast('Установка прошла успешно!', 'success');
+                return response.json().then(data => {
+                    showToast(data.message || 'Установка прошла успешно!', 'success');
+                });
             } else {
                 return response.json().then(data => {
                     showToast(data.detail || 'Ошибка при установке!', 'error');
